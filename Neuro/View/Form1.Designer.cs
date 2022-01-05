@@ -244,6 +244,7 @@ namespace Neuro
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.MainMenuStrip = this.menuStrip1;
+            this.BackColor = System.Drawing.Color.Violet;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

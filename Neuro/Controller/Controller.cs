@@ -25,7 +25,7 @@ namespace Neuro.Controller
         float radius = 30;
         public bool flag = false;
         Pen pen, line_pen, line_v_pen;
-        Brush brush, white_brush, orange_brush, red_example;
+        Brush brush, white_brush, yellow_brush, peachpuff_example;
         Bitmap bitmap, bitmap_layer;
         Graphics gr, gr_layer;
         Model.Net net;
@@ -38,8 +38,8 @@ namespace Neuro.Controller
             brush = new SolidBrush(Color.Black);
             line_v_pen = new Pen(Color.Red);
             white_brush = new SolidBrush(Color.White);
-            orange_brush = new SolidBrush(Color.Yellow);
-            red_example = new SolidBrush(Color.Red);
+            yellow_brush = new SolidBrush(Color.Yellow);
+            peachpuff_example = new SolidBrush(Color.PeachPuff);
         }
 
         public void Calculate()
@@ -69,7 +69,7 @@ namespace Neuro.Controller
                 }
                 catch (IndexOutOfRangeException)
                 {
-                    gr.FillEllipse(orange_brush, (float)(ax_X[0] - radius), (float)(hor_rects_inp[neuron] - radius), 2 * radius, 2 * radius);
+                    gr.FillEllipse(yellow_brush, (float)(ax_X[0] - radius), (float)(hor_rects_inp[neuron] - radius), 2 * radius, 2 * radius);
                 }
 
                 Form1.instance.PictureBox1.Image = bitmap;
@@ -114,7 +114,7 @@ namespace Neuro.Controller
                             }
                             catch (IndexOutOfRangeException)
                             {
-                                gr.FillEllipse(orange_brush, (float)(ax_X[0] - radius), (float)(hor_rects_inp[old_neuron] - radius), 2 * radius, 2 * radius);
+                                gr.FillEllipse(yellow_brush, (float)(ax_X[0] - radius), (float)(hor_rects_inp[old_neuron] - radius), 2 * radius, 2 * radius);
                             }
 
 
@@ -126,7 +126,7 @@ namespace Neuro.Controller
                             }
                             catch (IndexOutOfRangeException)
                             {
-                                gr.FillEllipse(orange_brush, (float)(ax_X[1] - radius), (float)(hor_rects_hidden[neuron, layer] - radius), 2 * radius, 2 * radius);
+                                gr.FillEllipse(yellow_brush, (float)(ax_X[1] - radius), (float)(hor_rects_hidden[neuron, layer] - radius), 2 * radius, 2 * radius);
 
                             }
                             Form1.instance.PictureBox1.Image = bitmap;
@@ -149,14 +149,14 @@ namespace Neuro.Controller
                                 //gr.FillEllipse(white_brush, (float)(ax_X[layer] - radius), (float)(hor_rects_hidden[old_neuron, layer - 1] - radius), 2 * radius, 2 * radius);
                                 gr.FillEllipse(brush, (float)(ax_X[layer] - radius), (float)(hor_rects_hidden[old_neuron, layer - 1] - radius), 2 * radius, 2 * radius);
                                 if (hor_rects_hidden[old_neuron + 1, layer - 1] == 0 && Array.Exists(this.biases, x => x == layer))
-                                    gr.FillEllipse(orange_brush, (float)(ax_X[layer] - radius), (float)(hor_rects_hidden[old_neuron, layer - 1] - radius), 2 * radius, 2 * radius);
+                                    gr.FillEllipse(yellow_brush, (float)(ax_X[layer] - radius), (float)(hor_rects_hidden[old_neuron, layer - 1] - radius), 2 * radius, 2 * radius);
                                 else
                                     gr.FillEllipse(new SolidBrush(Color.FromArgb((int)Math.Round(255 * last_h_Nodes.layer[old_neuron].Activated_value / marv), 255, 0, 0)), (float)(ax_X[layer] - radius), (float)(hor_rects_hidden[old_neuron, layer - 1] - radius), 2 * radius, 2 * radius);
 
                                 //gr.FillEllipse(white_brush, (float)(ax_X[layer + 1] - radius), (float)(hor_rects_hidden[neuron, layer] - radius), 2 * radius, 2 * radius);
                                 gr.FillEllipse(brush, (float)(ax_X[layer + 1] - radius), (float)(hor_rects_hidden[neuron, layer] - radius), 2 * radius, 2 * radius);
                                 if (hor_rects_hidden[old_neuron + 1, layer - 1] == 0 && Array.Exists(this.biases, x => x == layer))
-                                    gr.FillEllipse(orange_brush, (float)(ax_X[layer + 1] - radius), (float)(hor_rects_hidden[neuron, layer] - radius), 2 * radius, 2 * radius);
+                                    gr.FillEllipse(yellow_brush, (float)(ax_X[layer + 1] - radius), (float)(hor_rects_hidden[neuron, layer] - radius), 2 * radius, 2 * radius);
                                 else
                                     gr.FillEllipse(new SolidBrush(Color.FromArgb((int)Math.Round(255 * last_h_Nodes.layer[old_neuron].Activated_value / maximal_array_value), 255, 0, 0)), (float)(ax_X[layer + 1] - radius), (float)(hor_rects_hidden[neuron, layer] - radius), 2 * radius, 2 * radius);
 
@@ -209,7 +209,7 @@ namespace Neuro.Controller
                 {
                     gr.DrawLine(line_v_pen, (float)ax_X[ax_X.Length - 1], (float)hor_rects_out[neuron], (float)ax_X[ax_X.Length - 2], (float)hor_rects_hidden[old_neuron, hidden.Length - 1]);     //рисование линий от предыдущего слоя до нынешнего
                     if (flag && old_neuron == len - 1)
-                        gr.FillEllipse(orange_brush, (float)(ax_X[ax_X.Length - 2] - radius), (float)(hor_rects_hidden[old_neuron, hidden.Length - 1] - radius), 2 * radius, 2 * radius);
+                        gr.FillEllipse(yellow_brush, (float)(ax_X[ax_X.Length - 2] - radius), (float)(hor_rects_hidden[old_neuron, hidden.Length - 1] - radius), 2 * radius, 2 * radius);
                     else
                     {
                         gr.FillEllipse(brush, (float)(ax_X[ax_X.Length - 2] - radius), (float)(hor_rects_hidden[old_neuron, hidden.Length - 1] - radius), 2 * radius, 2 * radius);
