@@ -1,0 +1,10 @@
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.csproj.AssemblyReference.cache
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.Form1.resources
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.Properties.Resources.resources
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.csproj.GenerateResource.cache
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.csproj.CoreCompileInputs.cache
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\Neuro.exe.config
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\Neuro.exe
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\Neuro.pdb
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.exe
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.pdb
