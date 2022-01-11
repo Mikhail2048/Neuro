@@ -8,3 +8,14 @@ C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\Neuro.exe
 C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\Neuro.pdb
 C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.exe
 C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.pdb
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.csproj.SuggestedBindingRedirects.cache
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.dll
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.pdb
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.xml
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Азалия\source\repos\Neuro\Neuro\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Азалия\source\repos\Neuro\Neuro\obj\Debug\Neuro.csproj.CopyComplete

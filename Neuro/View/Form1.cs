@@ -32,20 +32,6 @@ namespace Neuro
             get { return instance.pictureBox1; }
         }
 
-        public Timer timer
-        {
-            get { return instance.timer1; }
-        }
-
-        public Timer Pauser
-        {
-            get { return instance.pauser; }
-        }
-
-        public ProgressBar ProgressBar
-        {
-            get { return instance.progressBar1; }
-        }
 
         private Form1()
         {
@@ -57,36 +43,22 @@ namespace Neuro
 
         private void visualize_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            weights_at_all = hidden_layers.Text.Split(' ').Select(n => Convert.ToInt32(n)).ToArray().Length + 1;
-            if (input_field.Text == "" || hidden_layers.Text == "" || number_of_output_neurons.Text == "")
+            weights_at_all = vector_y.Text.Split(' ').Select(n => Convert.ToInt32(n)).ToArray().Length + 1;
+            if (vector_x.Text == "" || vector_y.Text == "" || predicted_x.Text == "")
             {
                 MessageBox.Show("Not all fields filled");
                 return;
             }
-            controller.Initialize_NN(input_field.Text, hidden_layers.Text, number_of_output_neurons.Text, count_of_biases.Text);
+            controller.Initialize_NN(vector_x.Text, vector_y.Text, predicted_x.Text, predicted_y.Text);
             bitmap = controller.Draw();
             this.pictureBox1.Image = bitmap;
         }
 
-        private void make_calculations_Click(object sender, EventArgs e)
+        private void model_fitness_Click(object sender, EventArgs e)
         {
             controller.Calculate();
         }
 
-        public void timer1_Tick(object sender, EventArgs e)
-        {
-            if (ticks_count == weights_at_all + 1)
-            {
-                timer1.Stop();
-                return;
-            }
-
-            controller.show_layer_calculation(ticks_count);
-            //this.pictureBox1.Image = bitmap;
-
-            ticks_count++;
-        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -123,11 +95,47 @@ namespace Neuro
             Application.Exit();
         }
 
-        private void pauser_Tick(object sender, EventArgs e)
+        private void predicted_y_TextChanged(object sender, EventArgs e)
         {
-            controller.light_neuron(pauser_count);
-            pauser_count++;
+
         }
+
+        private void vector_x_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vector_y_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
 
 
     }

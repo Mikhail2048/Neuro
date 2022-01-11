@@ -54,12 +54,10 @@ namespace Neuro.Controller
                 return;
             }
 
-            Form1.instance.timer.Start();
         }
 
         async public void show_layer_calculation(int layer_number)
         {
-            Form1.instance.timer.Stop();
             maximal_array_value = inputs.Max();
             for (int neuron = 0; neuron < hor_rects_inp.Length; neuron++)
             {
@@ -75,7 +73,6 @@ namespace Neuro.Controller
                 Form1.instance.PictureBox1.Image = bitmap;
                 await Task.Delay(150);
             }
-            Form1.instance.ProgressBar.PerformStep();
 
             for (int layer = 0; layer < hidden.Length; layer++)
             {
@@ -178,7 +175,6 @@ namespace Neuro.Controller
                     gr.FillEllipse(white_brush, (float)(ax_X[ax_X.Length - 1] - radius), (float)(y - radius), 2 * radius, 2 * radius);
                 }
 
-                Form1.instance.ProgressBar.PerformStep();
             }
 
             maximal_array_value = net.output.Max();
@@ -223,7 +219,6 @@ namespace Neuro.Controller
                 await Task.Delay(150);
                 Form1.instance.PictureBox1.Image = bitmap;
             }
-            Form1.instance.ProgressBar.PerformStep();
 
 
         }
@@ -236,7 +231,6 @@ namespace Neuro.Controller
             }
             catch (System.IndexOutOfRangeException)
             {
-                Form1.instance.Pauser.Stop();
                 Form1.instance.pauser_count = -1;
                 maximal_array_value = 0;
                 return;
@@ -253,8 +247,6 @@ namespace Neuro.Controller
             lenght = Form1.instance.PictureBox1.Width;
             height = Form1.instance.PictureBox1.Height;
             layers_at_all = hidden.Length + 2;
-            Form1.instance.ProgressBar.Maximum = layers_at_all * 9;
-            Form1.instance.ProgressBar.Step = 9;
             vert_rects = lenght / layers_at_all;
             ax_X = new double[layers_at_all];
 

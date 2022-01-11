@@ -29,229 +29,249 @@ namespace Neuro
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.visualize = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.number_of_output_neurons = new System.Windows.Forms.TextBox();
-            this.hidden_layers = new System.Windows.Forms.TextBox();
-            this.input_field = new System.Windows.Forms.TextBox();
-            this.make_calculations = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pauser = new System.Windows.Forms.Timer(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.count_of_biases = new System.Windows.Forms.TextBox();
+            this.predicted_x = new System.Windows.Forms.TextBox();
+            this.vector_y = new System.Windows.Forms.TextBox();
+            this.vector_x = new System.Windows.Forms.TextBox();
+            this.model_fitness = new System.Windows.Forms.Button();
+            this.model_prediction = new System.Windows.Forms.Button();
+            this.predicted_y = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.model_evoluation = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(392, 43);
+            this.pictureBox1.Location = new System.Drawing.Point(635, 24);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1125, 766);
+            this.pictureBox1.Size = new System.Drawing.Size(727, 563);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(10, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(235, 30);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "1. Input and Output ";
+            this.label5.Click += new System.EventHandler(this.label1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(32, 93);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(142, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 24);
+            this.label1.Size = new System.Drawing.Size(48, 26);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Входные значения 1 слоя";
+            this.label1.Text = "x = ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(32, 231);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(142, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 24);
+            this.label2.Size = new System.Drawing.Size(48, 26);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Размеры внутреннего слоя";
+            this.label2.Text = "y = ";
             // 
             // visualize
             // 
-            this.visualize.Location = new System.Drawing.Point(91, 617);
+            this.visualize.BackColor = System.Drawing.Color.Bisque;
+            this.visualize.Location = new System.Drawing.Point(451, 65);
+            this.visualize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.visualize.Name = "visualize";
-            this.visualize.Size = new System.Drawing.Size(158, 33);
+            this.visualize.Size = new System.Drawing.Size(178, 39);
             this.visualize.TabIndex = 6;
-            this.visualize.Text = "Построить нейросеть";
-            this.visualize.UseVisualStyleBackColor = true;
+            this.visualize.Text = "Построить модель";
+            this.visualize.UseVisualStyleBackColor = false;
             this.visualize.Click += new System.EventHandler(this.visualize_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(32, 367);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(12, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(231, 24);
+            this.label3.Size = new System.Drawing.Size(41, 30);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Количество выходов из сети";
+            this.label3.Text = "2. ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // number_of_output_neurons
+            // predicted_x
             // 
-            this.number_of_output_neurons.Location = new System.Drawing.Point(36, 422);
-            this.number_of_output_neurons.Name = "number_of_output_neurons";
-            this.number_of_output_neurons.Size = new System.Drawing.Size(116, 20);
-            this.number_of_output_neurons.TabIndex = 8;
-            this.number_of_output_neurons.Text = "3";
+            this.predicted_x.Location = new System.Drawing.Point(223, 334);
+            this.predicted_x.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.predicted_x.Name = "predicted_x";
+            this.predicted_x.Size = new System.Drawing.Size(160, 26);
+            this.predicted_x.TabIndex = 8;
+            this.predicted_x.Text = "7 8 9";
             // 
-            // hidden_layers
+            // vector_y
             // 
-            this.hidden_layers.Location = new System.Drawing.Point(36, 286);
-            this.hidden_layers.Name = "hidden_layers";
-            this.hidden_layers.Size = new System.Drawing.Size(294, 20);
-            this.hidden_layers.TabIndex = 9;
-            this.hidden_layers.Text = "2 4 3";
+            this.vector_y.Location = new System.Drawing.Point(223, 99);
+            this.vector_y.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.vector_y.Name = "vector_y";
+            this.vector_y.Size = new System.Drawing.Size(160, 26);
+            this.vector_y.TabIndex = 9;
+            this.vector_y.Text = "1 2 3 4 5";
+            this.vector_y.TextChanged += new System.EventHandler(this.vector_y_TextChanged);
             // 
-            // input_field
+            // vector_x
             // 
-            this.input_field.Location = new System.Drawing.Point(36, 148);
-            this.input_field.Name = "input_field";
-            this.input_field.Size = new System.Drawing.Size(294, 20);
-            this.input_field.TabIndex = 10;
-            this.input_field.Text = "1 1 1";
+            this.vector_x.Location = new System.Drawing.Point(223, 65);
+            this.vector_x.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.vector_x.Name = "vector_x";
+            this.vector_x.Size = new System.Drawing.Size(160, 26);
+            this.vector_x.TabIndex = 10;
+            this.vector_x.Text = "1 2 3 4 5";
+            this.vector_x.TextChanged += new System.EventHandler(this.vector_x_TextChanged);
             // 
-            // make_calculations
+            // model_fitness
             // 
-            this.make_calculations.Location = new System.Drawing.Point(91, 678);
-            this.make_calculations.Name = "make_calculations";
-            this.make_calculations.Size = new System.Drawing.Size(158, 33);
-            this.make_calculations.TabIndex = 11;
-            this.make_calculations.Text = "Анимация расчётов";
-            this.make_calculations.UseVisualStyleBackColor = true;
-            this.make_calculations.Click += new System.EventHandler(this.make_calculations_Click);
+            this.model_fitness.BackColor = System.Drawing.Color.Bisque;
+            this.model_fitness.Location = new System.Drawing.Point(92, 160);
+            this.model_fitness.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.model_fitness.Name = "model_fitness";
+            this.model_fitness.Size = new System.Drawing.Size(178, 39);
+            this.model_fitness.TabIndex = 11;
+            this.model_fitness.Text = "Model Fitness";
+            this.model_fitness.UseVisualStyleBackColor = false;
+            this.model_fitness.Click += new System.EventHandler(this.model_fitness_Click);
             // 
-            // timer1
+            // model_prediction
             // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.model_prediction.BackColor = System.Drawing.Color.Bisque;
+            this.model_prediction.Location = new System.Drawing.Point(451, 356);
+            this.model_prediction.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.model_prediction.Name = "model_prediction";
+            this.model_prediction.Size = new System.Drawing.Size(178, 39);
+            this.model_prediction.TabIndex = 11;
+            this.model_prediction.Text = "Prediction";
+            this.model_prediction.UseVisualStyleBackColor = false;
+            this.model_prediction.Click += new System.EventHandler(this.model_fitness_Click);
             // 
-            // pauser
+            // predicted_y
             // 
-            this.pauser.Interval = 300;
-            this.pauser.Tick += new System.EventHandler(this.pauser_Tick);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.toolStripButton1,
-            this.toolStripSeparator2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1529, 25);
-            this.toolStrip1.TabIndex = 12;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(66, 22);
-            this.toolStripLabel1.Text = "Сохранить";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Просто кнопочка";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.закрытьToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1529, 24);
-            this.menuStrip1.TabIndex = 13;
-            this.menuStrip1.Text = "Меню";
-            // 
-            // закрытьToolStripMenuItem
-            // 
-            this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
-            this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.закрытьToolStripMenuItem.Text = "Закрыть";
-            this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(36, 786);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(294, 20);
-            this.progressBar1.TabIndex = 14;
-            // 
-            // count_of_biases
-            // 
-            this.count_of_biases.Location = new System.Drawing.Point(36, 538);
-            this.count_of_biases.Name = "count_of_biases";
-            this.count_of_biases.Size = new System.Drawing.Size(116, 20);
-            this.count_of_biases.TabIndex = 16;
-            this.count_of_biases.Text = "0 1 2";
+            this.predicted_y.Location = new System.Drawing.Point(223, 368);
+            this.predicted_y.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.predicted_y.Name = "predicted_y";
+            this.predicted_y.Size = new System.Drawing.Size(160, 26);
+            this.predicted_y.TabIndex = 16;
+            this.predicted_y.Text = "7 8 9";
+            this.predicted_y.TextChanged += new System.EventHandler(this.predicted_y_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(32, 483);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(10, 258);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 24);
+            this.label4.Size = new System.Drawing.Size(41, 30);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Слои со смещением";
+            this.label4.Text = "3. ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(99, 332);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 26);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "x.pred =";
+            this.label6.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(99, 368);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 26);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "y.pred =";
+            this.label7.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(10, 440);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 30);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "4. ";
+            this.label8.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // model_evoluation
+            // 
+            this.model_evoluation.BackColor = System.Drawing.Color.Bisque;
+            this.model_evoluation.Location = new System.Drawing.Point(92, 440);
+            this.model_evoluation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.model_evoluation.Name = "model_evoluation";
+            this.model_evoluation.Size = new System.Drawing.Size(178, 39);
+            this.model_evoluation.TabIndex = 17;
+            this.model_evoluation.Text = "Evoluation";
+            this.model_evoluation.UseVisualStyleBackColor = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(99, 498);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 26);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "model.evoluation = ";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 821);
-            this.Controls.Add(this.count_of_biases);
+            this.BackColor = System.Drawing.Color.Violet;
+            this.ClientSize = new System.Drawing.Size(1462, 974);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.model_evoluation);
+            this.Controls.Add(this.predicted_y);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.make_calculations);
-            this.Controls.Add(this.input_field);
-            this.Controls.Add(this.hidden_layers);
-            this.Controls.Add(this.number_of_output_neurons);
+            this.Controls.Add(this.model_fitness);
+            this.Controls.Add(this.model_prediction);
+            this.Controls.Add(this.vector_x);
+            this.Controls.Add(this.vector_y);
+            this.Controls.Add(this.predicted_x);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.visualize);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.BackColor = System.Drawing.Color.Violet;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,22 +284,19 @@ namespace Neuro
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button visualize;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox number_of_output_neurons;
-        private System.Windows.Forms.TextBox hidden_layers;
-        private System.Windows.Forms.TextBox input_field;
-        private System.Windows.Forms.Button make_calculations;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer pauser;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem;
-        private System.Windows.Forms.TextBox count_of_biases;
+        private System.Windows.Forms.TextBox predicted_x;
+        private System.Windows.Forms.TextBox vector_y;
+        private System.Windows.Forms.TextBox vector_x;
+        private System.Windows.Forms.Button model_fitness;
+        private System.Windows.Forms.Button model_prediction;
+        private System.Windows.Forms.TextBox predicted_y;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button model_evoluation;
+        private System.Windows.Forms.Label label9;
     }
 }
 
