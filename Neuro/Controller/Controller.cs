@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Neuro;
 using System.Windows.Forms;
 using Neuro.Model;
+using System.Xml;
+using System.Data;
+using System.Data.Common;
 
 namespace Neuro.Controller
 {
@@ -22,7 +25,7 @@ namespace Neuro.Controller
         double[,] hor_rects_hidden;
         double vert_rects;
         char[] separators = new char[] { ' ', '\n' };
-        float radius = 30;
+        float radius = 15;
         public bool flag = false;
         Pen pen, line_pen, line_v_pen;
         Brush brush, white_brush, yellow_brush, peachpuff_example;
@@ -30,6 +33,12 @@ namespace Neuro.Controller
         Graphics gr, gr_layer;
         Model.Net net;
         //Model.DeepInputOutputProgram net;
+
+        public double[] xVals, yVals;
+        private static int xIndex;
+        private static int yIndex;
+
+        public double standardDevX, standardDevY, correlation, slope, interception;
 
         public Controller()
         {
@@ -54,6 +63,16 @@ namespace Neuro.Controller
                 return;
             }
 
+        }
+
+        public void addValues(double[] xValuesToAdd, double[] yValuesToAdd)
+        {
+            net.addValues(xValuesToAdd, yValuesToAdd);
+        }
+
+        public double PredictY(double x)
+        {
+            return net.PredictY(x);
         }
 
         async public void show_layer_calculation(int layer_number)
@@ -245,7 +264,7 @@ namespace Neuro.Controller
             outputs = Convert.ToInt32(outs);
             try { this.biases = biases.Split(separators).Select(n => Convert.ToInt32(n)).ToArray(); } catch (FormatException) { this.biases = new int[0]; }
             lenght = Form1.instance.PictureBox1.Width;
-            height = Form1.instance.PictureBox1.Height;
+            height = Form1.instance.PictureBox1.Height - 30;
             layers_at_all = hidden.Length + 2;
             vert_rects = lenght / layers_at_all;
             ax_X = new double[layers_at_all];
@@ -311,7 +330,7 @@ namespace Neuro.Controller
                 hor_rects_out[count] = i;
                 count++;
             }
-
+            Calculate();
         }
 
         public Bitmap Draw()

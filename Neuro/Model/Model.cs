@@ -34,7 +34,11 @@ namespace Neuro.Model
         public Weights IH_weights;
         public Weights[] H_weights;
 
+        public double[] xVals, yVals;
+        private static int xIndex;
+        private static int yIndex;
 
+        public double standardDevX, standardDevY, correlation, slope, interception;
 
         public Net(double[] inputs, int[] neurons_in_layers, int num_outputs, int[] biases_in_layers)
         {
@@ -99,6 +103,11 @@ namespace Neuro.Model
 
             output = hidden[hidden.Length - 1] * H_weights[H_weights.Length - 1];
             output.out_l = true;
+
+            xVals = new double[100];
+            yVals = new double[100];
+            xIndex = 0;
+            yIndex = 0;
         }
 
         public void print_net()
@@ -114,6 +123,79 @@ namespace Neuro.Model
             output.print();
         }
 
+        public void addValues(double[] xValuesToAdd, double[] yValuesToAdd)
+        {
+            int i = 0;
+            for (; xIndex < xVals.Length && i < xValuesToAdd.Length; xIndex++)
+            {
+                this.xVals[xIndex] = xValuesToAdd[i];
+                i++;
+            }
+
+            i = 0;
+            for (; yIndex < yVals.Length && i < yValuesToAdd.Length; yIndex++)
+            {
+                this.yVals[yIndex] = yValuesToAdd[i];
+                i++;
+            }
+            standardDevX = GetStandardDeviation(xVals, xIndex);
+            standardDevY = GetStandardDeviation(yVals, yIndex);
+            correlation = GetCorrelation(xVals, yVals);
+            slope = correlation * standardDevY / standardDevX;
+            interception = GetArrMean(yVals, yIndex) - slope * GetArrMean(xVals, xIndex);
+        }
+
+        public double PredictY(double x)
+        {
+            return interception + slope * x;
+        }
+
+        private static double GetArrMean(double[] arr, int borderIndex)
+        {
+            return arr.Sum() / borderIndex;
+        }
+
+        private static double GetStandardDeviation(double[] arr, int borderIndex)
+        {
+            double mean = GetArrMean(arr, borderIndex);
+            double[] devs = new double[borderIndex];
+            for (int i = 0; i < borderIndex; i++)
+            {
+                devs[i] = Math.Pow(arr[i] - mean, 2);
+            }
+            return Math.Sqrt(devs.Sum() / (devs.Length - 1));
+        }
+
+        private static double GetCorrelation(double[] X, double[] Y)
+        {
+            double XMean = X.Sum() / xIndex;
+            double YMean = Y.Sum() / yIndex;
+            double[] x = new double[xIndex];
+            double[] y = new double[yIndex];
+
+            for (int i = 0; i < xIndex; i++)
+            {
+                x[i] = X[i] - XMean;
+                y[i] = Y[i] - YMean;
+            }
+
+            double[] xy = new double[xIndex];
+            for (int i = 0; i < xIndex; i++)
+            {
+                xy[i] = x[i] * y[i];
+            }
+
+            double[] xPowed = new double[xIndex];
+            double[] yPowed = new double[yIndex];
+
+            for (int i = 0; i < xIndex; i++)
+            {
+                xPowed[i] = Math.Pow(x[i], 2);
+                yPowed[i] = Math.Pow(y[i], 2);
+            }
+
+            return xy.Sum() / Math.Sqrt(xPowed.Sum() * yPowed.Sum());
+        }
 
     }
 
